@@ -1,4 +1,3 @@
-// 'use strict';
 
 const apiKey = '<your api token here>';
 const searchURL = "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?";
@@ -13,46 +12,27 @@ function formatQueryParams(params) {
 //Function to display what is given from fetch
 function displayResults(responseJson) {
   console.log(responseJson);
-  $('#results-list').empty();
+  $('.results').empty();
+  let pageKey = Object.keys(responseJson.query.pages)[0];
+  console.log(pageKey);
 
-  for(let i = 0; i < responseJson.query.pages.length; i++){
-    $('#results-list').append(
-      `
-      <li><h3>${responseJson.query.pages[i].title}</h3></li>
-      <ul>
-        <li>${responseJson.query.pages[i].pageid}</li>
-        <li>${responseJson.query.pages[i].extract}</li>
-      </ul>
-      `);}
-  $('#results').removeClass('hidden');
-
-//Postman path:
-//query -> pages -> pageid(just in numerical form, not specifying pageid) -> pageid, ns, title, extract.
+$('.results').append(
+  `
+    <h2>Search results</h2>
+    <h3>Title: ${responseJson.query.pages[pageKey].title}</h3>
+    <h3>Page ID: ${responseJson.query.pages[pageKey].pageid}</h3>
+    <h3>Information:<br> ${responseJson.query.pages[pageKey].extract}</h3>
+  `);
 }
 
 //Function to fetch info from URL
-function getBands(genre, maxResults=5) {
+function getBands(band, maxResults=5) {
   const params = {
     "format": "json",
     "action": "query",
     "prop": "extracts&exintro&explaintext",
-    // "exintro": ``,//No = needed for param, with uncommented, below occurs
-    // "explaintext": ``,//No = needed for param, with uncommented, below occurs
     "redirects": "1",
-    "titles": genre,
-
-    //prop=extracts&exintro&explaintext&redirects=1&titles=
-    //
-    //Above should be url to fetch from
-    //
-    //prop=extracts&exintro=&explaintext=&redirects=1&titles=
-    //Above is current issue
-
-    //Working params for search of just quick display from wiki:
-    // "action": "query",
-    // "list": "search",
-    // srsearch: genre,
-    // "format": "json",
+    "titles": band,
   };
   const queryString = formatQueryParams(params)
   const url = searchURL + queryString;
@@ -75,10 +55,27 @@ function getBands(genre, maxResults=5) {
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
-    const genre = $('#js-search-term').val();
+    const band = $('#js-search-term').val();
     const maxResults = $('#js-max-results').val();
-    getBands(genre, maxResults);
+    getBands(band, maxResults);
   });
+  $('.subList-btn').on('click', event => {
+    event.preventDefault();
+    $('.results').empty();
+    const band = $('.subList-btn').val();
+    //const maxResults = $('#js-max-results').val();
+    getBands(band);
+  });
+
 }
 
+
 $(watchForm);
+
+// CHECK INTO!!
+// $('.subList-btn').on('click', event => {
+//   event.preventDefault();
+//   const band = $('#genreBtn').val();
+//   //const maxResults = $('#js-max-results').val();
+//   getBands(band);
+// });
