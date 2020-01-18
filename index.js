@@ -1,6 +1,7 @@
 
-const apiKey = '<your api token here>';
-const searchURL = "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?";
+const searchURLWiki = "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?";
+const apiKey = 'AIzaSyCl6Xky5CLxlHS17BeB1KMt_ROdXm4FJ18';
+const searchURLYouTube = "https://www.googleapis.com/youtube/v3/search?";
 
 //Function to create url for fetch
 function formatQueryParams(params) {
@@ -10,21 +11,38 @@ function formatQueryParams(params) {
 }
 
 //Function to display what is given from fetch
-function displayResults(responseJson) {
+function displayResultsWiki(responseJson) {
   console.log(responseJson);
   $('.results').empty();
   let pageKey = Object.keys(responseJson.query.pages)[0];
 
 $('.results').append(
   `
-    <h2>Search results</h2>
+    <h2>Search Results</h2>
     <h3>Title: ${responseJson.query.pages[pageKey].title}</h3>
-    <h3>Page ID: ${responseJson.query.pages[pageKey].pageid}</h3>
-    <h3>Information:<br> ${responseJson.query.pages[pageKey].extract}</h3>
+    <p>Information:<br><br> ${responseJson.query.pages[pageKey].extract}</p>
+    <h4>Page ID: ${responseJson.query.pages[pageKey].pageid}</h4>
   `);
+
+
 }
 
-//Function to fetch info from URL
+function displayResultsYoutube(responseJson) {
+  console.log(responseJson);
+  $('.resultsVids').empty();
+  for(let i = 0; i < responseJson.items.length; i++){
+    $('.resultsVids').append(
+      `
+        <h2>Search Results for Videos</h2>
+        <h3>${responseJson.items[i].snippet.title}</h3>
+        <h5>${responseJson.items[i].snippet.channelTitle}<h5>
+        <h5>${responseJson.items[i].snippet.description}<h5>
+        <img src="${responseJson.items[i].snippet.thumbnails.default.url}">
+
+      `);}
+}
+
+//Function to fetch info from Wiki URL
 function getBands(band, maxResults=5) {
   const params = {
     "format": "json",
@@ -34,7 +52,7 @@ function getBands(band, maxResults=5) {
     "titles": band,
   };
   const queryString = formatQueryParams(params)
-  const url = searchURL + queryString;
+  const url = searchURLWiki + queryString;
 
   fetch(url)
     .then(response => {
@@ -43,7 +61,32 @@ function getBands(band, maxResults=5) {
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => displayResults(responseJson, maxResults))
+    .then(responseJson => displayResultsWiki(responseJson, maxResults))
+    .catch(err => {
+      console.log(err);
+      $('#js-error-message').text(`Something went wrong: ${err.message}`);
+    });
+
+}
+
+//Function to fetch info from Youtube URL
+function getVideos(genre, maxResults=5) {
+  const params = {
+    "q": genre + 'playlist',
+    "key": apiKey,
+    "part": "snippet"
+  };
+  const queryString = formatQueryParams(params)
+  const url = searchURLYouTube + queryString;
+
+  fetch(url)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then(responseJson => displayResultsYoutube(responseJson, maxResults))
     .catch(err => {
       console.log(err);
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
@@ -57,27 +100,15 @@ function watchForm() {
     const band = $('#js-search-term').val();
     const maxResults = $('#js-max-results').val();
     getBands(band, maxResults);
+    getVideos(band, maxResults);
   });
 
   $('.subList').on('click', '.subList-btn', function(event){
   		event.stopPropagation();
   		let band= $(this).val();
   		getBands(band);
+      getVideos(band, maxResults=5);
   	});
-
-
-
-
-
-  // $('.btn').on('click', event => {
-  //   event.preventDefault();
-  //   event.stopPropagation();
-  //   console.log(this);
-  //   $('.results').empty();
-  //   const band = $(this).val();
-  //   //const maxResults = $('#js-max-results').val();
-  //   getBands(band);
-  // });
 
 }
 
