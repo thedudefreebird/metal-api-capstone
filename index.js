@@ -14,7 +14,6 @@ function displayResults(responseJson) {
   console.log(responseJson);
   $('.results').empty();
   let pageKey = Object.keys(responseJson.query.pages)[0];
-  console.log(pageKey);
 
 $('.results').append(
   `
@@ -59,23 +58,28 @@ function watchForm() {
     const maxResults = $('#js-max-results').val();
     getBands(band, maxResults);
   });
-  $('.subList-btn').on('click', event => {
-    event.preventDefault();
-    $('.results').empty();
-    const band = $('.subList-btn').val();
-    //const maxResults = $('#js-max-results').val();
-    getBands(band);
-  });
+
+  $('.subList').on('click', '.subList-btn', function(event){
+  		event.stopPropagation();
+  		let band= $(this).val();
+  		getBands(band);
+  	});
+
+
+
+
+
+  // $('.btn').on('click', event => {
+  //   event.preventDefault();
+  //   event.stopPropagation();
+  //   console.log(this);
+  //   $('.results').empty();
+  //   const band = $(this).val();
+  //   //const maxResults = $('#js-max-results').val();
+  //   getBands(band);
+  // });
 
 }
 
 
 $(watchForm);
-
-// CHECK INTO!!
-// $('.subList-btn').on('click', event => {
-//   event.preventDefault();
-//   const band = $('#genreBtn').val();
-//   //const maxResults = $('#js-max-results').val();
-//   getBands(band);
-// });
