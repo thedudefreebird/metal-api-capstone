@@ -14,20 +14,6 @@ button:hover {
   cursor: pointer;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  padding: 10px;
-}
-
-li, img {
-  max-width: 500px;
-}
-
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -35,4 +21,16 @@ li, img {
 
 .error-message {
     color: red;
+}
+
+.results {
+  border: solid 5px;
+  border-color: black;
+  padding: 5px, 5px, 5px, 5px;
+}
+
+.resultsVids {
+  border: dashed 5px;
+  border-color: black;
+  padding: 5px, 5px, 5px, 5px;
 }
