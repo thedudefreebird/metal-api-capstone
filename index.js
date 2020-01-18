@@ -1,6 +1,6 @@
 
 const searchURLWiki = "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?";
-const apiKey = 'AIzaSyCl6Xky5CLxlHS17BeB1KMt_ROdXm4FJ18';
+const apiKey = '<Your API Here';
 const searchURLYouTube = "https://www.googleapis.com/youtube/v3/search?";
 
 //Function to create url for fetch
@@ -16,14 +16,15 @@ function displayResultsWiki(responseJson) {
   $('.results').empty();
   let pageKey = Object.keys(responseJson.query.pages)[0];
 
-$('.results').append(
-  `
-    <h2>Search Results</h2>
-    <h3>Title: ${responseJson.query.pages[pageKey].title}</h3>
-    <p>Information:<br><br> ${responseJson.query.pages[pageKey].extract}</p>
-    <h4>Page ID: ${responseJson.query.pages[pageKey].pageid}</h4>
-  `);
+  $('.results').append(
+    `
+      <h2>Search Results</h2>
+      <h3>Title: ${responseJson.query.pages[pageKey].title}</h3>
+      <p>Information:<br><br> ${responseJson.query.pages[pageKey].extract}</p>
+      <h4>Page ID: ${responseJson.query.pages[pageKey].pageid}</h4>
+      `);
 
+  $('.results').removeClass('hidden');
 
 }
 
@@ -40,6 +41,8 @@ function displayResultsYoutube(responseJson) {
         <img src="${responseJson.items[i].snippet.thumbnails.default.url}">
 
       `);}
+    $('.resultsVids').removeClass('hidden');
+
 }
 
 //Function to fetch info from Wiki URL
