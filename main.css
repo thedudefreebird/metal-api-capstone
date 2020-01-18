@@ -26,11 +26,15 @@ button:hover {
 .results {
   border: solid 5px;
   border-color: black;
-  padding: 5px, 5px, 5px, 5px;
+  padding: 10px;
 }
 
 .resultsVids {
   border: dashed 5px;
   border-color: black;
-  padding: 5px, 5px, 5px, 5px;
+  padding: 10px;
+}
+
+.hidden {
+  display: none;
 }
