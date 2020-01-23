@@ -1,6 +1,6 @@
 
 const searchURLWiki = "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?";
-const apiKey = '<your API Key here>';
+const apiKeyYouTube = '<your API Key here>';
 const searchURLYouTube = "https://www.googleapis.com/youtube/v3/search?";
 
 //Function to create url for fetch
@@ -107,7 +107,7 @@ function getVideos(genre, maxResults=10) {
     "order": "relevance",
     "q": genre,
     "type": "video",
-    "key": apiKey,
+    "key": apiKeyYouTube,
 
   };
   const queryString = formatQueryParams(params)
@@ -135,7 +135,7 @@ function getGenreVideos(genre, maxResults=10) {
     "order": "relevance",
     "q": genre + '%20playlist',
     "type": "video",
-    "key": apiKey,
+    "key": apiKeyYouTube,
   };
   const queryString = formatQueryParams(params)
   const url = searchURLYouTube + queryString;
