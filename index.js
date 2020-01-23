@@ -1,6 +1,6 @@
 
 const searchURLWiki = "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?";
-const apiKey = "AIzaSyBckdZjEHyHq3voCmb1rHnYlwb4SJcDqbM";
+const apiKey = '<your API Key here>';
 const searchURLYouTube = "https://www.googleapis.com/youtube/v3/search?";
 
 //Function to create url for fetch
@@ -36,12 +36,10 @@ function displayResultsYoutube(responseJson) {
   for(let i = 0; i < responseJson.items.length; i++){
     $('.resultsVids').append(
       `
-        <h3>${responseJson.items[i].snippet.title}</h3>
+        <a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank"<h3>${responseJson.items[i].snippet.title}</h3></a>
         <h5>${responseJson.items[i].snippet.channelTitle}<h5>
         <img src="${responseJson.items[i].snippet.thumbnails.medium.url}">
         <h5>${responseJson.items[i].snippet.description}<h5>
-
-
       `);}
     $('.resultsVids').removeClass('hidden');
 
@@ -135,7 +133,7 @@ function getGenreVideos(genre, maxResults=10) {
     "part": "snippet",
     "maxResults": maxResults,
     "order": "relevance",
-    "q": genre + 'playlist',
+    "q": genre + '%20playlist',
     "type": "video",
     "key": apiKey,
   };
