@@ -56,6 +56,9 @@ button:hover {
 }
 
 @media only screen and (max-width: 767px) {
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
 
   #title {
     color: black;
@@ -123,6 +126,9 @@ button:hover {
 }
 
 @media only screen and (max-width: 1024px) {
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
 
   #title {
     color: black;
