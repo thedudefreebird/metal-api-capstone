@@ -1,6 +1,6 @@
 
 const searchURLWiki = "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?";
-const apiKey = '<Your API Here';
+const apiKey = "AIzaSyBckdZjEHyHq3voCmb1rHnYlwb4SJcDqbM";
 const searchURLYouTube = "https://www.googleapis.com/youtube/v3/search?";
 
 //Function to create url for fetch
@@ -10,7 +10,7 @@ function formatQueryParams(params) {
     return queryItems.join('&');
 }
 
-//Function to display what is given from fetch
+//Function to display what is given from fetch from Wikipedia
 function displayResultsWiki(responseJson) {
   console.log(responseJson);
   $('.results').empty();
@@ -28,25 +28,27 @@ function displayResultsWiki(responseJson) {
 
 }
 
+//Function to display what is given from fetch from Youtube
 function displayResultsYoutube(responseJson) {
   console.log(responseJson);
   $('.resultsVids').empty();
+  $('.resultsVids').append(`<h2>Video Search Results </h2>`)
   for(let i = 0; i < responseJson.items.length; i++){
     $('.resultsVids').append(
       `
-        <h2>Search Results for Videos</h2>
         <h3>${responseJson.items[i].snippet.title}</h3>
         <h5>${responseJson.items[i].snippet.channelTitle}<h5>
+        <img src="${responseJson.items[i].snippet.thumbnails.medium.url}">
         <h5>${responseJson.items[i].snippet.description}<h5>
-        <img src="${responseJson.items[i].snippet.thumbnails.default.url}">
+
 
       `);}
     $('.resultsVids').removeClass('hidden');
 
 }
 
-//Function to fetch info from Wiki URL
-function getBands(band, maxResults=5) {
+//Function to fetch info from Wiki URL for searching a band
+function getBands(band, maxResults=10) {
   const params = {
     "format": "json",
     "action": "query",
@@ -72,12 +74,43 @@ function getBands(band, maxResults=5) {
 
 }
 
-//Function to fetch info from Youtube URL
-function getVideos(genre, maxResults=5) {
+//Function to fetch info from Wiki URL for button selection
+function getGenre(band, maxResults=10) {
   const params = {
-    "q": genre + 'playlist',
+    "format": "json",
+    "action": "query",
+    "prop": "extracts&exintro&explaintext",
+    "redirects": "1",
+    "titles": band,
+  };
+  const queryString = formatQueryParams(params)
+  const url = searchURLWiki + queryString;
+
+  fetch(url)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then(responseJson => displayResultsWiki(responseJson, maxResults))
+    .catch(err => {
+      console.log(err);
+      $('#js-error-message').text(`Something went wrong: ${err.message}`);
+    });
+
+}
+
+//Function to fetch info from Youtube URL for searching a band
+function getVideos(genre, maxResults=10) {
+  const params = {
+    "part": "snippet",
+    "maxResults": maxResults,
+    "order": "relevance",
+    "q": genre,
+    "type": "video",
     "key": apiKey,
-    "part": "snippet"
+
   };
   const queryString = formatQueryParams(params)
   const url = searchURLYouTube + queryString;
@@ -96,7 +129,34 @@ function getVideos(genre, maxResults=5) {
     });
 }
 
-//Watchform Function
+//Function to fetch info from Youtube URL for selecting a button
+function getGenreVideos(genre, maxResults=10) {
+  const params = {
+    "part": "snippet",
+    "maxResults": maxResults,
+    "order": "relevance",
+    "q": genre + 'playlist',
+    "type": "video",
+    "key": apiKey,
+  };
+  const queryString = formatQueryParams(params)
+  const url = searchURLYouTube + queryString;
+
+  fetch(url)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then(responseJson => displayResultsYoutube(responseJson, maxResults))
+    .catch(err => {
+      console.log(err);
+      $('#js-error-message').text(`Something went wrong: ${err.message}`);
+    });
+}
+
+//Watchform Function, watching for what the user is going to do
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
@@ -109,8 +169,8 @@ function watchForm() {
   $('.subList').on('click', '.subList-btn', function(event){
   		event.stopPropagation();
   		let band= $(this).val();
-  		getBands(band);
-      getVideos(band, maxResults=5);
+  		getGenre(band);
+      getGenreVideos(band, maxResults=10);
   	});
 
 }
