@@ -24,15 +24,11 @@ button:hover {
 }
 
 .results {
-  border: solid 5px;
-  border-color: black;
   padding: 10px;
   margin-bottom: 10px;
 }
 
 .resultsVids {
-  border: solid 5px;
-  border-color: black;
   padding: 10px;
   margin-bottom: 10px;
 }
@@ -92,6 +88,10 @@ button:hover {
     justify-content: flex-start;
   }
 
+  #thumbnail {
+    width: 300px;
+  }
+
   input[type="text"] {
     padding: 5px;
     border-color: black;
@@ -121,6 +121,16 @@ button:hover {
 
   button:hover {
     cursor: pointer;
+  }
+
+  .results {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .resultsVids {
+    padding: 10px;
+    margin-bottom: 10px;
   }
 
 }
