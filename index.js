@@ -1,6 +1,6 @@
 
 const searchURLWiki = "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?";
-const apiKeyYouTube = '<your API Key here>';
+const apiKeyYouTube = ${{secrets.youtube-api-key}};
 const searchURLYouTube = "https://www.googleapis.com/youtube/v3/search?";
 
 //Function to create url for fetch
