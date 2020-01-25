@@ -1,6 +1,5 @@
-
+const apiKeyYouTube = "AIzaSyBMV8sm8dNu7XYiO8-y9aF6J2bWTYatw3Y";
 const searchURLWiki = "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?";
-const apiKeyYouTube = '<your API Key here>';
 const searchURLYouTube = "https://www.googleapis.com/youtube/v3/search?";
 
 //Function to create url for fetch
@@ -37,9 +36,9 @@ function displayResultsYoutube(responseJson) {
     $('.resultsVids').append(
       `
         <a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank"<h3>${responseJson.items[i].snippet.title}</h3></a>
-        <h5>${responseJson.items[i].snippet.channelTitle}<h5>
-        <img src="${responseJson.items[i].snippet.thumbnails.medium.url}">
-        <h5>${responseJson.items[i].snippet.description}<h5>
+        <h5>Channel Title: ${responseJson.items[i].snippet.channelTitle}<h5>
+        <img id="thumbnail" src="${responseJson.items[i].snippet.thumbnails.medium.url}">
+        <h5>Description:<br> ${responseJson.items[i].snippet.description}<h5>
       `);}
     $('.resultsVids').removeClass('hidden');
 
