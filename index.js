@@ -11,7 +11,6 @@ function formatQueryParams(params) {
 
 //Function to display what is given from fetch from Wikipedia
 function displayResultsWiki(responseJson) {
-  console.log(responseJson);
   $('.results').empty();
   let pageKey = Object.keys(responseJson.query.pages)[0];
 
@@ -29,7 +28,6 @@ function displayResultsWiki(responseJson) {
 
 //Function to display what is given from fetch from Youtube
 function displayResultsYoutube(responseJson) {
-  console.log(responseJson);
   $('.resultsVids').empty();
   $('.resultsVids').append(`<h2>Video Search Results </h2>`)
   for(let i = 0; i < responseJson.items.length; i++){
