@@ -38,16 +38,19 @@ header{
   margin-top: 100px;
   text-align: center;
   font-size: 30px;
+  text-decoration: underline;
+}
+
+.subList{
+  text-align: center;
 }
 
 .subList-btn{
   margin-top: 5px;
-  border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   background-color: black;
   border-radius: 4px;
@@ -66,37 +69,39 @@ button, input[type="text"] {
   padding: 5px;
 }
 
-button:hover {
-  cursor: pointer;
-  color: white;
-  background-color: black;
+.label {
+  font-size: 20px;
 }
 
 #js-form {
   font-family: 'Cinzel', serif;
   margin-top: 50px;
+  text-align: center;
 }
 
 #searchBand {
   text-align: center;
   font-size: 30px;
+  text-decoration: underline;
 }
 
 #headsUp {
   text-align: center;
   margin-top: 0;
-  font-size: 24px;
+  font-size: 16px;
 }
 
 #js-search-term{
   margin-bottom: 0px;
   font-family: 'Cinzel', serif;
+  border: 2px solid grey;
 }
 
 #js-max-results {
   padding: 4px;
   margin-top: 10px;
   font-family: 'Cinzel', serif;
+  border: 2px solid grey;
 }
 
 #searchGo {
@@ -113,6 +118,8 @@ button:hover {
   border: 2px solid grey;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
+  margin-top: 25px;
+  margin-bottom: 100px;
 }
 
 .error-message {
@@ -127,6 +134,7 @@ button:hover {
   margin-right: 10px;
   width: 800px;
   height: auto;
+  font-size: 16px;
 }
 
 .resultsVids {
@@ -136,6 +144,7 @@ button:hover {
   border: solid 5px;
   margin-left: 10px;
   width: 800px;
+  font-size: 16px;
 }
 
 .hidden {
@@ -149,12 +158,6 @@ button:hover {
   justify-content: space-between;
 }
 
-
-
-#headsUp{
-  font-size: 12px;
-  margin-top: 0;
-}
 
 /* @media only screen and (max-width: 767px) {
   body {
