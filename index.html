@@ -7,11 +7,12 @@
     <title>Metal Discovery API App</title>
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Amiri|Cinzel|Cinzel+Decorative&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="container">
       <header>
-        <h1 id="title">Metal Discovery API App</h1>
+        <h1 id="title">Metal Discovery App</h1>
       </header>
 
       <section class="subList">
@@ -44,18 +45,20 @@
 
       <form id="js-form">
         <h2 id="searchBand">Search For A Band</h2>
+        <p id="headsUp">(In some search cases, "band" may need to be added to the end of an entry for proper results)</p><br>
         <label for="search-term">Search Band</label>
         <input type="text" name="search-term" id="js-search-term" required><br>
-        <p id="headsUp">(In some search cases, "band" may need to be added to the end of an entry for proper results)</p><br>
         <label for="max-results">Maximum Videos to Return</label>
-        <input type="number" name="max-results" id="js-max-results" value="10">
-        <input type="submit" value="Go!">
+        <input type="number" name="max-results" id="js-max-results" value="10"><br>
+        <input type="submit" value="Rock On!" id="searchGo">
       </form>
 
       <p id="js-error-message" class="error-message"></p>
 
-      <section class="results hidden"></section>
-      <section class="resultsVids hidden"></section>
+      <section id="resultsContainer">
+        <section class="results hidden"></section>
+        <section class="resultsVids hidden"></section>
+      </section>
 
 
     </main>

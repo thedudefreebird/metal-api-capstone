@@ -28,6 +28,7 @@ function displayResultsWiki(responseJson) {
 
 //Function to display what is given from fetch from Youtube
 function displayResultsYoutube(responseJson) {
+  console.log(responseJson);
   $('.resultsVids').empty();
   $('.resultsVids').append(`<h2>Video Search Results </h2>`)
   for(let i = 0; i < responseJson.items.length; i++){
@@ -40,6 +41,9 @@ function displayResultsYoutube(responseJson) {
       `);}
     $('.resultsVids').removeClass('hidden');
 
+    // <iframe width="560" height="315" src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
+    // frameborder="0" allow="accelerometer; autoplay; encrypted-media;
+    // gyroscope; picture-in-picture; " allowfullscreen></iframe>
 }
 
 //Function to fetch info from Wiki URL for searching a band
