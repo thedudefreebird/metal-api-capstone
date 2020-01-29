@@ -16,7 +16,7 @@ function displayResultsWiki(responseJson) {
 
   $('.results').append(
     `
-      <h2>Search Results</h2>
+      <h2 id="searchResultsHeader">Search Results</h2>
       <h3>Title: ${responseJson.query.pages[pageKey].title}</h3>
       <p>Information:<br><br> ${responseJson.query.pages[pageKey].extract}</p>
       <h4>Page ID: ${responseJson.query.pages[pageKey].pageid}</h4>
@@ -30,14 +30,14 @@ function displayResultsWiki(responseJson) {
 function displayResultsYoutube(responseJson) {
   console.log(responseJson);
   $('.resultsVids').empty();
-  $('.resultsVids').append(`<h2>Video Search Results </h2>`)
+  $('.resultsVids').append(`<h2 id="searchResultsHeader">Video Search Results </h2>`)
   for(let i = 0; i < responseJson.items.length; i++){
     $('.resultsVids').append(
       `
-        <a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank"<h3>${responseJson.items[i].snippet.title}</h3></a>
-        <h5>Channel Title: ${responseJson.items[i].snippet.channelTitle}<h5>
+        <a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank"<h3 id="linkLine">${responseJson.items[i].snippet.title}</h3></a>
+        <h5 id='chanTitle'>Channel Title: ${responseJson.items[i].snippet.channelTitle}<h5>
         <img id="thumbnail" src="${responseJson.items[i].snippet.thumbnails.medium.url}">
-        <h5>Description:<br> ${responseJson.items[i].snippet.description}<h5>
+        <h5 id='chanDescrip'>Description:<br> ${responseJson.items[i].snippet.description}<h5>
       `);}
     $('.resultsVids').removeClass('hidden');
 
