@@ -36,14 +36,16 @@ function displayResultsYoutube(responseJson) {
       `
         <a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank"<h3 id="linkLine">${responseJson.items[i].snippet.title}</h3></a>
         <h5 id='chanTitle'>Channel Title: ${responseJson.items[i].snippet.channelTitle}<h5>
-        <img id="thumbnail" src="${responseJson.items[i].snippet.thumbnails.medium.url}">
+        
+        <iframe width="500" height="315" src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media;
+        gyroscope; picture-in-picture; " allowfullscreen></iframe>
+
         <h5 id='chanDescrip'>Description:<br> ${responseJson.items[i].snippet.description}<h5>
       `);}
     $('.resultsVids').removeClass('hidden');
 
-    // <iframe width="560" height="315" src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
-    // frameborder="0" allow="accelerometer; autoplay; encrypted-media;
-    // gyroscope; picture-in-picture; " allowfullscreen></iframe>
+    // <img id="thumbnail" src="${responseJson.items[i].snippet.thumbnails.medium.url}">
 }
 
 //Function to fetch info from Wiki URL for searching a band
