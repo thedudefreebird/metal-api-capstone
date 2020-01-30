@@ -28,7 +28,6 @@ function displayResultsWiki(responseJson) {
 
 //Function to display what is given from fetch from Youtube
 function displayResultsYoutube(responseJson) {
-  console.log(responseJson);
   $('.resultsVids').empty();
   $('.resultsVids').append(`<h2 id="searchResultsHeader">Video Search Results </h2>`)
   for(let i = 0; i < responseJson.items.length; i++){
@@ -36,8 +35,8 @@ function displayResultsYoutube(responseJson) {
       `
         <a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank"<h3 id="linkLine">${responseJson.items[i].snippet.title}</h3></a>
         <h5 id='chanTitle'>Channel Title: ${responseJson.items[i].snippet.channelTitle}<h5>
-        
-        <iframe width="500" height="315" src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
+
+        <iframe id="iframeVid" width="500" height="315" src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
         frameborder="0" allow="accelerometer; autoplay; encrypted-media;
         gyroscope; picture-in-picture; " allowfullscreen></iframe>
 
