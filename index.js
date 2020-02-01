@@ -56,7 +56,7 @@ function getBands(band, maxResults=10) {
     "redirects": "1",
     "titles": band,
   };
-  const queryString = formatQueryParams(params)
+  const queryString = formatQueryParams(params);
   const url = searchURLWiki + queryString;
 
   fetch(url)
@@ -83,7 +83,7 @@ function getGenre(band, maxResults=10) {
     "redirects": "1",
     "titles": band,
   };
-  const queryString = formatQueryParams(params)
+  const queryString = formatQueryParams(params);
   const url = searchURLWiki + queryString;
 
   fetch(url)
@@ -112,7 +112,7 @@ function getVideos(genre, maxResults=10) {
     "key": apiKeyYouTube,
 
   };
-  const queryString = formatQueryParams(params)
+  const queryString = formatQueryParams(params);
   const url = searchURLYouTube + queryString;
 
   fetch(url)
@@ -139,7 +139,7 @@ function getGenreVideos(genre, maxResults=10) {
     "type": "video",
     "key": apiKeyYouTube,
   };
-  const queryString = formatQueryParams(params)
+  const queryString = formatQueryParams(params);
   const url = searchURLYouTube + queryString;
 
   fetch(url)
