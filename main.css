@@ -209,9 +209,6 @@ button, input[type="text"] {
   justify-content: space-around;
 }
 
-
-
-
 @media only screen and (max-width: 767px) {
 
   body {
