@@ -42,6 +42,13 @@ header{
   text-align: center;
   font-size: 30px;
   text-decoration: underline;
+  background-color: black;
+  color: white;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  border: 2px solid grey;
 }
 
 .subList{
@@ -80,7 +87,15 @@ button, input[type="text"] {
 #js-form {
   font-family: 'Cinzel', serif;
   margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  background-color: black;
+  border-radius: 4px;
+  border: 2px solid grey;
+  color: white;
+  width: 825px;
+  height: 350px;
 }
 
 #searchBand {
@@ -345,6 +360,12 @@ button, input[type="text"] {
     color: red;
 }
 
+#resultsContainer {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .results {
   font-family: 'Amiri', serif;
   padding: 10px;
@@ -382,9 +403,7 @@ button, input[type="text"] {
   display: none;
 }
 
-#resultsContainer {
-  display: block;
-}
+
 
 
 @media only screen and (max-width: 1024px) {
