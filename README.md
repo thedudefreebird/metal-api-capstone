@@ -17,13 +17,13 @@ videos from YouTube to listen to their music.
 ## Images of the Application
 
 Application Start Screen:
-![Application Start Screen](screenshots/app-start-screen.jpg)
+![Application Start Screen](screenshots/app-start-screen2.jpg)
 
 Genre Search Results:
-![Genre Search Results](screenshots/genre-select-results.jpg)
+![Genre Search Results](screenshots/genre-select-results2.jpg)
 
 Band Search Results:
-![Genre Search Results](screenshots/band-search-results.jpg)
+![Genre Search Results](screenshots/band-search-results2.jpg)
 
 ## Technolgies Used
 
