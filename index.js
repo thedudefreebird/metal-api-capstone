@@ -38,7 +38,7 @@ function displayResultsWiki(responseJson) {
 //Function to display what is given from fetch from Youtube
 function displayResultsYoutube(responseJson) {
   $('.resultsVids').empty();
-  $('.resultsVids').append(`<h2 id="searchResultsHeader">Video Search Results </h2>`)
+  $('.resultsVids').append(`<h2 id="searchResultsHeader">Video Search Results </h2>`);
   for(let i = 0; i < responseJson.items.length; i++){
     $('.resultsVids').append(
       `
@@ -49,6 +49,7 @@ function displayResultsYoutube(responseJson) {
         gyroscope; picture-in-picture; " allowfullscreen></iframe>
         <h5 id='chanDescrip'>Description:<br> ${responseJson.items[i].snippet.description}</h5>
       `);}
+
     $('.resultsVids').removeClass('hidden');
 
 }
@@ -116,7 +117,6 @@ function getVideos(genre, maxResults=10) {
     "q": genre,
     "type": "video",
     "key": apiKeyYouTube,
-
   };
   const queryString = formatQueryParams(params);
   const url = searchURLYouTube + queryString;
