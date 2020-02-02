@@ -19,7 +19,7 @@ function displayResultsWiki(responseJson) {
       `
         <h2 id="searchResultsHeader">Search Results</h2>
         <h3>There Is No Wikipedia Page for This Search.</h3>
-        <h3>Please Search Again.</h3>
+        <h3>Please Search Again!</h3>
        `);
   }else{
     $('.results').append(
