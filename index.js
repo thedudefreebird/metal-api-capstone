@@ -13,15 +13,24 @@ function formatQueryParams(params) {
 function displayResultsWiki(responseJson) {
   $('.results').empty();
   let pageKey = Object.keys(responseJson.query.pages)[0];
-  $('.results').append(
-    `
-      <h2 id="searchResultsHeader">Search Results</h2>
-      <h3>Title: ${responseJson.query.pages[pageKey].title}</h3>
-      <p>Information:<br><br> ${responseJson.query.pages[pageKey].extract}</p>
-      <h4>Page ID: ${responseJson.query.pages[pageKey].pageid}</h4>
-     `);
 
-
+  if(Object.keys(responseJson.query.pages)[0] === "-1"){
+    $('.results').append(
+      `
+        <h2 id="searchResultsHeader">Search Results</h2>
+        <h3>There Is No Wikipedia Page for This Search.</h3>
+        <h3>Please Search Again.</h3>
+       `);
+  }else{
+    $('.results').append(
+      `
+        <h2 id="searchResultsHeader">Search Results</h2>
+        <h3>Title: ${responseJson.query.pages[pageKey].title}</h3>
+        <p>Information:<br><br> ${responseJson.query.pages[pageKey].extract}</p>
+        <h4>Page ID: ${responseJson.query.pages[pageKey].pageid}</h4>
+       `);
+  }
+  
   $('.results').removeClass('hidden');
 
 }
