@@ -12,7 +12,7 @@ videos from YouTube to listen to their music.
 
 ## Working Link
 
-[Metal Discovery App](https://thedudefreebird.github.io/metal-api-capstone/)
+[Metal Discovery App](https://tylerfreebs.github.io/metal-api-capstone/)
 
 ## Images of the Application
 
