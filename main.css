@@ -4,12 +4,11 @@
 
 body {
   line-height: 1.5;
-  background-image: url('images/stage-wallpaper.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color:#464646;
+  background-color:#f8f7f9;
 }
 
 .container {
@@ -25,8 +24,8 @@ header{
 }
 
 #title {
-  font-family: 'Cinzel Decorative', cursive;
-  background-color: Black;
+  font-family: 'Josefin Sans';
+  background-color: #ff784f;
   color: white;
   width: auto;
   margin-top: 0px;
@@ -37,17 +36,16 @@ header{
 }
 
 #selectSub {
-  font-family: 'Cinzel', serif;
+  font-family: 'Josefin Sans';
   margin-top: 100px;
   text-align: center;
   font-size: 30px;
-  text-decoration: underline;
-  background-color: black;
+  background-color: #333533;
   color: white;
   width: 400px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 4px;
+  border-radius: 6px;
   border: 2px solid grey;
 }
 
@@ -56,23 +54,48 @@ header{
 }
 
 .subList-btn{
+  font-family: 'Open Sans';
+  background-color: #ff784f;
+  font-size: 16px;
   margin-top: 5px;
   color: white;
-  padding: 15px 30px;
+  padding: 14px 25px;
   text-align: center;
   text-decoration: none;
-  font-size: 14px;
-  background-color: black;
-  border-radius: 4px;
-  border: 2px solid grey;
+  border-radius: 6px;
+  border: 2px solid #242423;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
-  font-family: 'Cinzel', serif;
 }
 
 .subList-btn:hover{
-  background-color: white;
-  color: black;
+  background-color: #242423;
+  color: #ff784f;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#searchAgain{
+  display: flex;
+  justify-content: center;
+  font-family: 'Open Sans';
+  background-color: #ff784f;
+  font-size: 16px;
+  margin-top: 10px;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 2px solid #242423;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#searchAgain:hover{
+  background-color: #242423;
+  color: #ff784f;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
@@ -85,12 +108,12 @@ button, input[type="text"] {
 }
 
 #js-form {
-  font-family: 'Cinzel', serif;
+  font-family: 'Josefin Sans';
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  background-color: black;
+  background-color: #333533;
   border-radius: 4px;
   border: 2px solid grey;
   color: white;
@@ -112,18 +135,20 @@ button, input[type="text"] {
 
 #js-search-term{
   margin-bottom: 0px;
-  font-family: 'Cinzel', serif;
+  font-family: 'Open Sans';
   border: 2px solid grey;
 }
 
 #js-max-results {
   padding: 4px;
   margin-top: 10px;
-  font-family: 'Cinzel', serif;
+  font-family: 'Open Sans';
   border: 2px solid grey;
 }
 
 #searchGo {
+  font-family: 'Josefin Sans';
+  background-color: #ff784f;
   margin-top: 5px;
   border: none;
   color: white;
@@ -132,14 +157,12 @@ button, input[type="text"] {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  background-color: black;
   border-radius: 4px;
   border: 2px solid grey;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   margin-top: 25px;
   margin-bottom: 100px;
-  font-family: 'Cinzel', serif;
 }
 
 .error-message {
@@ -147,26 +170,28 @@ button, input[type="text"] {
 }
 
 .results {
-  font-family: 'Amiri', serif;
+  font-family: 'Open Sans';
+  font-size: 16px;
   padding: 10px;
   margin-bottom: 10px;
-  border: solid 5px;
+  border: solid 5px #b80c09;
+  border-radius: 6px;
   margin-right: 10px;
   margin-left: 20px;
   width: 650px;
   height: auto;
-  font-size: 16px;
   background-color: white;
   height: 800px;
   overflow-y: auto;
 }
 
 .resultsVids {
-  font-family: 'Amiri', serif;
+  font-family: 'Open Sans';
   padding: 10px;
   margin-bottom: 10px;
   margin-right: 20px;
-  border: solid 5px;
+  border: solid 5px #b80c09;
+  border-radius: 6px;
   margin-left: 10px;
   width: 650px;
   font-size: 16px;
@@ -176,25 +201,25 @@ button, input[type="text"] {
 }
 
 #searchResultsHeader{
-  font-family: 'Cinzel', serif;
+  font-family: 'Josefin Sans';
   text-align: center;
   font-size: 30px;
   text-decoration: underline;
 }
 
 #linkLine{
-  font-family: 'Amiri', serif;
+  font-family: 'Josefin Sans';
   font-size: 20px;
   text-decoration: underline;
 }
 
 #chanTitle {
-  font-family: 'Amiri', serif;
+  font-family: 'Open Sans';
   font-size: 16px;
 }
 
 #chanDescrip {
-  font-family: 'Amiri', serif;
+  font-family: 'Open Sans';
   font-size: 16px;
 }
 
@@ -214,12 +239,11 @@ button, input[type="text"] {
 
   body {
     line-height: 1.5;
-    background-image: url('images/stage-wallpaper.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color:#464646;
+    background-color:#f8f7f9;;
   }
 
   .container {
@@ -235,8 +259,8 @@ button, input[type="text"] {
   }
 
   #title {
-    font-family: 'Cinzel Decorative', cursive;
-    background-color: Black;
+    font-family: 'Josefin Sans';
+    background-color: #ff784f;
     color: white;
     width: auto;
     margin-top: 0px;
@@ -249,11 +273,11 @@ button, input[type="text"] {
   }
 
   #selectSub {
-    font-family: 'Cinzel', serif;
+    font-family: 'Josefin Sans';
+    background-color: #333533;
     margin-top: 150px;
     text-align: center;
     font-size: 30px;
-    text-decoration: underline;
     width: 300px;
     margin-left: auto;
     margin-right: auto;
@@ -266,23 +290,23 @@ button, input[type="text"] {
   }
 
   .subList-btn{
+    font-family: 'Open Sans';
+    background-color: #ff784f;
+    font-size: 14px;
     margin-top: 5px;
     color: white;
-    padding: 15px 30px;
+    padding: 14px 25px;
     text-align: center;
     text-decoration: none;
-    font-size: 14px;
-    background-color: black;
     border-radius: 4px;
-    border: 2px solid grey;
+    border: 2px solid #242423;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    font-family: 'Cinzel', serif;
   }
 
   .subList-btn:hover{
-    background-color: white;
-    color: black;
+    background-color: #242423;
+    color: #ff784f;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
 
@@ -291,12 +315,12 @@ button, input[type="text"] {
   }
 
   #js-form {
-    font-family: 'Cinzel', serif;
+    font-family: 'Josefin Sans';
+    background-color: #333533;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    background-color: black;
     border-radius: 4px;
     border: 2px solid grey;
     color: white;
@@ -321,19 +345,21 @@ button, input[type="text"] {
   #js-search-term{
     padding: 4px;
     margin-bottom: 20px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Open Sans';
     border: 2px solid grey;
   }
 
   #js-max-results {
     padding: 4px;
     margin-top: 15px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Open Sans';
     border: 2px solid grey;
   }
 
   #searchGo {
-    font-family: 'Cinzel', serif;
+    font-family: 'Josefin Sans';
+    background-color: #ff784f;
+    font-size: 20px;
     margin-top: 5px;
     border: none;
     color: white;
@@ -341,8 +367,6 @@ button, input[type="text"] {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
-    background-color: black;
     border-radius: 4px;
     border: 2px solid grey;
     -webkit-transition-duration: 0.4s;
@@ -362,10 +386,10 @@ button, input[type="text"] {
   }
 
   .results {
-    font-family: 'Amiri', serif;
-    padding: 10px;
-    border: solid 5px;
+    font-family: 'Open Sans';
     font-size: 16px;
+    padding: 10px;
+    border: solid 5px #b80c09;
     background-color: white;
     width: 350px;
     height: 500px;
@@ -376,9 +400,9 @@ button, input[type="text"] {
   }
 
   .resultsVids {
-    font-family: 'Amiri', serif;
+    font-family: 'Open Sans';
     padding-right: 10px;
-    border: solid 5px;
+    border: solid 5px #b80c09;
     font-size: 16px;
     background-color: white;
     width: 350px;
@@ -387,6 +411,28 @@ button, input[type="text"] {
     display: block;
     margin-right: auto;
     margin-left: auto;
+  }
+  #searchResultsHeader{
+    font-family: 'Josefin Sans';
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+  }
+  
+  #linkLine{
+    font-family: 'Josefin Sans';
+    font-size: 20px;
+    text-decoration: underline;
+  }
+  
+  #chanTitle {
+    font-family: 'Open Sans';
+    font-size: 16px;
+  }
+  
+  #chanDescrip {
+    font-family: 'Open Sans';
+    font-size: 16px;
   }
 
   #iframeVid{
@@ -404,12 +450,11 @@ button, input[type="text"] {
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   body {
     line-height: 1.5;
-    background-image: url('images/stage-wallpaper.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color:#464646;
+    background-color:#f8f7f9;
   }
 
   .container {
@@ -425,8 +470,8 @@ button, input[type="text"] {
   }
 
   #title {
-    font-family: 'Cinzel Decorative', cursive;
-    background-color: Black;
+    font-family: 'Josefin Sans';
+    background-color: #ff784f;
     color: white;
     width: auto;
     margin-top: 0px;
@@ -439,11 +484,11 @@ button, input[type="text"] {
   }
 
   #selectSub {
-    font-family: 'Cinzel', serif;
+    font-family: 'Josefin Sans';
+    background-color: #333533;
     margin-top: 100px;
     text-align: center;
     font-size: 30px;
-    text-decoration: underline;
   }
 
   .subList{
@@ -451,23 +496,23 @@ button, input[type="text"] {
   }
 
   .subList-btn{
+    font-family: 'Open Sans';
+    background-color: #ff784f;
+    font-size: 14px;
     margin-top: 5px;
     color: white;
-    padding: 15px 30px;
+    padding: 14px 25px;
     text-align: center;
     text-decoration: none;
-    font-size: 14px;
-    background-color: black;
     border-radius: 4px;
-    border: 2px solid grey;
+    border: 2px solid #242423;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    font-family: 'Cinzel', serif;
   }
 
   .subList-btn:hover{
-    background-color: white;
-    color: black;
+    background-color: #242423;
+    color: #ff784f;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
 
@@ -480,12 +525,12 @@ button, input[type="text"] {
   }
 
   #js-form {
-    font-family: 'Cinzel', serif;
+    font-family: 'Josefin Sans';
+    background-color: #333533;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    background-color: black;
     border-radius: 4px;
     border: 2px solid grey;
     color: white;
@@ -508,18 +553,21 @@ button, input[type="text"] {
 
   #js-search-term{
     margin-bottom: 0px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Open Sans';
     border: 2px solid grey;
   }
 
   #js-max-results {
     padding: 4px;
     margin-top: 10px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Open Sans';
     border: 2px solid grey;
   }
 
   #searchGo {
+    font-family: 'Josefin Sans';
+    background-color: #ff784f;
+    font-size: 16px;
     margin-top: 5px;
     border: none;
     color: white;
@@ -527,8 +575,6 @@ button, input[type="text"] {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    background-color: black;
     border-radius: 4px;
     border: 2px solid grey;
     -webkit-transition-duration: 0.4s;
@@ -542,13 +588,13 @@ button, input[type="text"] {
   }
 
   .results {
-    font-family: 'Amiri', serif;
+    font-family: 'Open Sans';
+    font-size: 16px;
     padding: 10px;
     margin-bottom: 10px;
     margin-left: 5px;
     margin-right: 5px;
-    border: solid 5px;
-    font-size: 16px;
+    border: solid 5px #b80c09;
     background-color: white;
     width: 375px;
     height: 550px;
@@ -556,17 +602,39 @@ button, input[type="text"] {
   }
 
   .resultsVids {
-    font-family: 'Amiri', serif;
+    font-family: 'Open Sans';
     padding: 10px;
     margin-bottom: 10px;
     margin-left: 5px;
     margin-right: 5px;
-    border: solid 5px;
+    border: solid 5px #b80c09;
     font-size: 16px;
     background-color: white;
     width: 375px;
     height: 550px;
     overflow-y: auto;
+  }
+  #searchResultsHeader{
+    font-family: 'Josefin Sans';
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+  }
+  
+  #linkLine{
+    font-family: 'Josefin Sans';
+    font-size: 20px;
+    text-decoration: underline;
+  }
+  
+  #chanTitle {
+    font-family: 'Open Sans';
+    font-size: 16px;
+  }
+  
+  #chanDescrip {
+    font-family: 'Open Sans';
+    font-size: 16px;
   }
 
   .hidden {
