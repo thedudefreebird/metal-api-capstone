@@ -1,4 +1,4 @@
-const apiKeyYouTube = "AIzaSyBMV8sm8dNu7XYiO8-y9aF6J2bWTYatw3Y";
+const apiKeyYouTube = "AIzaSyCjirlwLw4OV1IHn9Lj_fAjGDcmYS1gU54";
 const searchURLWiki = "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?";
 const searchURLYouTube = "https://www.googleapis.com/youtube/v3/search?";
 
