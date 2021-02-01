@@ -6,7 +6,7 @@ const searchURLYouTube = "https://www.googleapis.com/youtube/v3/search?";
 function formatQueryParams(params) {
   const queryItems = Object.keys(params)
     .map(key => `${key}=${params[key]}`);
-    return queryItems.join('&');
+  return queryItems.join('&');
 }
 
 //Function to display what is given from fetch from Wikipedia
@@ -14,14 +14,14 @@ function displayResultsWiki(responseJson) {
   $('.results').empty();
   let pageKey = Object.keys(responseJson.query.pages)[0];
 
-  if(Object.keys(responseJson.query.pages)[0] === "-1"){
+  if (Object.keys(responseJson.query.pages)[0] === "-1") {
     $('.results').append(
       `
         <h2 id="searchResultsHeader">Search Results</h2>
         <h3>There Is No Wikipedia Page for This Search.</h3>
         <h3>Please Search Again!</h3>
        `);
-  }else{
+  } else {
     $('.results').append(
       `
         <h2 id="searchResultsHeader">Search Results</h2>
@@ -30,32 +30,12 @@ function displayResultsWiki(responseJson) {
         <h4>Page ID: ${responseJson.query.pages[pageKey].pageid}</h4>
        `);
   }
-  
+
   $('.results').removeClass('hidden');
 
 }
-
-//Function to display what is given from fetch from Youtube
-function displayResultsYoutube(responseJson) {
-  $('.resultsVids').empty();
-  $('.resultsVids').append(`<h2 id="searchResultsHeader">Video Search Results </h2>`);
-  for(let i = 0; i < responseJson.items.length; i++){
-    $('.resultsVids').append(
-      `
-        <a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank" <h3 id="linkLine">${responseJson.items[i].snippet.title}</h3></a>
-        <h3 id='chanTitle'> Channel Title: ${responseJson.items[i].snippet.channelTitle}</h3>
-        <h4>Video:</h4><iframe id="iframeVid" width="500" height="315" src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
-        frameborder="0" allow="accelerometer; autoplay; encrypted-media;
-        gyroscope; picture-in-picture; " allowfullscreen></iframe>
-        <h5 id='chanDescrip'>Description:<br> ${responseJson.items[i].snippet.description}</h5>
-      `);}
-
-    $('.resultsVids').removeClass('hidden');
-
-}
-
 //Function to fetch info from Wiki URL for searching a band
-function getBands(band, maxResults=10) {
+function getBands(band, maxResults = 10) {
   const params = {
     "format": "json",
     "action": "query",
@@ -82,13 +62,13 @@ function getBands(band, maxResults=10) {
 }
 
 //Function to fetch info from Wiki URL for button selection
-function getGenre(band, maxResults=10) {
+function getGenre(genre, maxResults = 10) {
   const params = {
     "format": "json",
     "action": "query",
     "prop": "extracts&exintro&explaintext",
     "redirects": "1",
-    "titles": band,
+    "titles": genre,
   };
   const queryString = formatQueryParams(params);
   const url = searchURLWiki + queryString;
@@ -108,13 +88,33 @@ function getGenre(band, maxResults=10) {
 
 }
 
+//Function to display what is given from fetch from Youtube
+function displayResultsYoutube(responseJson) {
+  $('.resultsVids').empty();
+  $('.resultsVids').append(`<h2 id="searchResultsHeader">Video Search Results </h2>`);
+  for (let i = 0; i < responseJson.items.length; i++) {
+    $('.resultsVids').append(
+      `
+        <a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank" <h3 id="linkLine">${responseJson.items[i].snippet.title}</h3></a>
+        <h3 id='chanTitle'> Channel Title: ${responseJson.items[i].snippet.channelTitle}</h3>
+        <h4>Video:</h4><iframe id="iframeVid" width="500" height="315" src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media;
+        gyroscope; picture-in-picture; " allowfullscreen></iframe>
+        <h5 id='chanDescrip'>Description:<br> ${responseJson.items[i].snippet.description}</h5>
+      `);
+  }
+
+  $('.resultsVids').removeClass('hidden');
+
+}
+
 //Function to fetch info from Youtube URL for searching a band
-function getVideos(genre, maxResults=10) {
+function getVideos(band, maxResults = 10) {
   const params = {
     "part": "snippet",
     "maxResults": maxResults,
     "order": "relevance",
-    "q": genre,
+    "q": band,
     "type": "video",
     "key": apiKeyYouTube,
   };
@@ -136,7 +136,7 @@ function getVideos(genre, maxResults=10) {
 }
 
 //Function to fetch info from Youtube URL for selecting a button
-function getGenreVideos(genre, maxResults=10) {
+function getGenreVideos(genre, maxResults = 10) {
   const params = {
     "part": "snippet",
     "maxResults": maxResults,
@@ -172,12 +172,12 @@ function watchForm() {
     getVideos(band, maxResults);
   });
 
-  $('.subList').on('click', '.subList-btn', function(event){
-  		event.stopPropagation();
-  		let band= $(this).val();
-  		getGenre(band);
-      getGenreVideos(band, maxResults=10);
-  	});
+  $('.subList').on('click', '.subList-btn', function (event) {
+    event.stopPropagation();
+    let genre = $(this).val();
+    getGenre(genre);
+    getGenreVideos(genre, maxResults = 10);
+  });
 
 }
 
